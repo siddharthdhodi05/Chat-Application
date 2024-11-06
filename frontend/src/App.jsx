@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Signup from './components/Signup'
 import HomePage from './components/HomePage';
 import Login from './components/Login';
@@ -15,15 +15,15 @@ const router = createBrowserRouter([
     element:<Signup/>
   },
   {
-    path:"/",
+    path:"/login",
     element:<Login/>
   },
 ]);
 
 const App = () => {
   return (
-    <div className=" flex align-middle px-24">
-      <div>hello</div>
+    <div className=' h-screen p-4 flex items-center justify-center'>
+      <RouterProvider router={router}/>
     </div>
   )
 }
