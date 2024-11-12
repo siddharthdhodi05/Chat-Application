@@ -7,16 +7,14 @@ export const register = async (req, res) => {
     const { fullName, username, password, confirmPassword, gender } = req.body;
 
     if (!fullName || !username || !password || !confirmPassword || !gender) {
-      return res.status(400).json({
-        message: "Something is missing",
-      });
+     return res.status(400).json({ message:"something is missing" });
     }
     if (password !== confirmPassword) {
-      return res.status(400).json({ message: "Password do not match" });
+      return res.status(400).json({ message:"Password do not match" });
     }
     const user = await User.findOne({ username });
     if (user) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message:"User already exists" });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
 
