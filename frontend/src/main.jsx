@@ -6,7 +6,10 @@ import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
 
+export const BASE_URL="http://localhost:8080"
+
 createRoot(document.getElementById("root")).render(
+
   <StrictMode>
     <Provider store={store}>
       <App />
